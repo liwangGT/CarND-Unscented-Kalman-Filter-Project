@@ -28,6 +28,10 @@ public:
   ///* state covariance matrix
   MatrixXd P_;
 
+  ///* measurement covariance matrix
+  MatrixXd R_laser_;
+  MatrixXd R_radar_;
+
   ///* predicted sigma points matrix
   MatrixXd Xsig_pred_;
 
@@ -57,6 +61,7 @@ public:
 
   ///* Weights of sigma points
   VectorXd weights_;
+  VectorXd weights_aug_;
 
   ///* State dimension
   int n_x_;
@@ -66,6 +71,7 @@ public:
 
   ///* Sigma point spreading parameter
   double lambda_;
+  double lambda_aug_;
 
 
   /**
