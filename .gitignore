@@ -6,3 +6,6 @@ build/
 
 # temp files
 *~
+
+# temp code
+lecture_code.txt

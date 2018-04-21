@@ -71,7 +71,11 @@ public:
 
   ///* Sigma point spreading parameter
   double lambda_;
-  double lambda_aug_;
+
+  ///* Count of NIS params 
+  // NIS_lidar <5%, %5-95%, >%95 
+  // NIS_radar <5%, %5-95%, >%95 
+  MatrixXd NIS_hist;
 
 
   /**
