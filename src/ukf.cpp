@@ -83,6 +83,11 @@ UKF::~UKF() {}
  * either radar or laser.
  */
 void UKF::ProcessMeasurement(MeasurementPackage meas_package) {
+
+  // skip not used sensor
+  if ( (use_laser_ == false && meas_package.sensor_type_ == MeasurementPackage::LASER) || (use_radar_ == false && meas_package.sensor_type_ == MeasurementPackage::RADAR))
+    return;
+
   // check if initialized
   if (!is_initialized_) {
     // initialize x_ and P_
@@ -116,10 +121,6 @@ void UKF::ProcessMeasurement(MeasurementPackage meas_package) {
     cout << "P_ = " << P_ << endl;
     return;
   }
-  
-  // skip not used sensor
-  if ( (use_laser_ == false && meas_package.sensor_type_ == MeasurementPackage::LASER) || (use_radar_ == false && meas_package.sensor_type_ == MeasurementPackage::RADAR))
-    return;
 
   // already initialized
   //prediction using CVTR model
